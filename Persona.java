@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -31,8 +34,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name="disc",discriminatorType = DiscriminatorType.CHAR)
-//@DiscriminatorValue("P")
+@DiscriminatorColumn(name="disc",discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("P")
 @NamedQueries({
         @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
         @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd")
@@ -71,6 +74,9 @@ public class Persona implements Serializable {
     @Column
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
+    @Column(insertable = false, updatable = false) 
+    private String disc;
+    
     @OneToMany(mappedBy = "persona")
     private List<Urgencia> urgencias;
 
@@ -298,4 +304,13 @@ public class Persona implements Serializable {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+    public String getDisc() {
+        return disc;
+    }
+
+    public void setDisc(String disc) {
+        this.disc = disc;
+    }
+    
 }

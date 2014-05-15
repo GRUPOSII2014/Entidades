@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -27,7 +28,7 @@ import javax.persistence.OneToOne;
  * @author Alberto
  */
 @Entity
-//@DiscriminatorValue("T")
+@DiscriminatorValue("T")
 @NamedQueries({@NamedQuery (name = "trabajador.get", query = "select t from Trabajador t")})
 public class Trabajador extends Persona implements Serializable {
     private static final long serialVersionUID = 1L;

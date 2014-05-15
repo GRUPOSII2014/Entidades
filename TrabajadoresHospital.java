@@ -11,6 +11,7 @@ package Entidades;
 import java.io.Serializable;
 import java.sql.Time;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -18,7 +19,7 @@ import javax.persistence.Entity;
  * @author Alberto
  */
 @Entity
-//@DiscriminatorValue("H")
+@DiscriminatorValue("H")
 public class TrabajadoresHospital extends Trabajador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable=false)

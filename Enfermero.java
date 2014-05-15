@@ -10,6 +10,7 @@ package Entidades;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -17,7 +18,7 @@ import javax.persistence.Entity;
  * @author Alberto
  */
 @Entity
-//@DiscriminatorValue("E")
+@DiscriminatorValue("E")
 public class Enfermero extends Trabajador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable=false)
