@@ -5,9 +5,6 @@ package Entidades;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -35,64 +33,68 @@ import javax.persistence.TemporalType;
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="disc",discriminatorType = DiscriminatorType.CHAR)
 //@DiscriminatorValue("P")
-@NamedQuery (name = "Persona.all",query = "select p from Persona p")
+@NamedQueries({
+        @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
+        @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd")
+})
 public class Persona implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     private Integer numSegSocial;
-    @Column(nullable=true, length = 9, unique = true)
+    @Column(nullable = true, length = 9, unique = true)
     private String DNI;
-    @Column(nullable=false, length=40)
+    @Column(nullable = false, length = 40)
     private String nombre;
-    @Column(nullable=false, length=40)
+    @Column(nullable = false, length = 40)
     private String apellido1;
     @Column(nullable = false, length = 30)
     private String password;
-    @Column(length=40)
+    @Column(length = 40)
     private String apellido2;
-    @Column(length=100, nullable = true, unique = true)
+    @Column(length = 100, nullable = true, unique = true)
     private String email;
-    @Column(nullable=false, length=40)
+    @Column(nullable = false, length = 40)
     private String estadoCivil;
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String telefono;
-    @Column(nullable=false, length=400)
+    @Column(nullable = false, length = 400)
     private String direccion;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private Integer codigoPostal;
-    @Column(nullable=false, length=40)
+    @Column(nullable = false, length = 40)
     private String ciudad;
-    @Column(nullable=false, length=40)
+    @Column(nullable = false, length = 40)
     private String pais;
-    @Column(nullable=false, length=10)
+    @Column(nullable = false, length = 10)
     private String sexo;
     @Column
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
     @OneToMany(mappedBy = "persona")
     private List<Urgencia> urgencias;
-    
+
     @OneToMany
     @JoinColumn(name = "personaTratamiento")
     private List<Tratamiento> tratamiento;
     @OneToMany(mappedBy = "persona")
     private List<Cita> citas;
-    
+
     @OneToOne(mappedBy = "paciente")
     private Cama cama;
     @ManyToMany
-    @JoinTable(name="alertas", 
-    joinColumns = @JoinColumn(name="persona_fk"),
-    inverseJoinColumns = @JoinColumn(name = "alerta_fk"))
-    private List<Alerta> alertas; 
+    @JoinTable(name = "alertas",
+            joinColumns = @JoinColumn(name = "persona_fk"),
+            inverseJoinColumns = @JoinColumn(name = "alerta_fk"))
+    private List<Alerta> alertas;
     @OneToOne(mappedBy = "persona")
     private HistoriaClinica historiaclinica;
     @ManyToOne
     @JoinColumn(name = "medico")
     private Medico medicoCabecera;
 
-    public Persona(){
-        
+    public Persona() {
+
     }
 
     public Date getFechaNacimiento() {
@@ -118,11 +120,11 @@ public class Persona implements Serializable {
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
     }
-    
+
     public String getSexo() {
         return sexo;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -145,7 +147,6 @@ public class Persona implements Serializable {
         return true;
     }
 
-    
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
@@ -157,7 +158,7 @@ public class Persona implements Serializable {
     public void setMedicoCabecera(Medico medicoCabecera) {
         this.medicoCabecera = medicoCabecera;
     }
-    
+
     public List<Alerta> getAlertas() {
         return alertas;
     }
@@ -174,7 +175,6 @@ public class Persona implements Serializable {
         this.historiaclinica = historiaclinica;
     }
 
-    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -202,7 +202,7 @@ public class Persona implements Serializable {
     public void setCama(Cama cama) {
         this.cama = cama;
     }
-    
+
     public Integer getNumSegSocial() {
         return numSegSocial;
     }

@@ -18,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,6 +27,7 @@ import javax.persistence.TemporalType;
  * @author PyRoS
  */
 @Entity
+@NamedQuery (name = "Noticias", query = "select n from Noticia n")
 public class Noticia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
