@@ -17,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -26,6 +28,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 //@DiscriminatorValue("T")
+@NamedQueries({@NamedQuery (name = "trabajador.get", query = "select t from Trabajador t")})
 public class Trabajador extends Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 
