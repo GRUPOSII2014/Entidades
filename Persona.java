@@ -39,7 +39,8 @@ import javax.persistence.TemporalType;
 @NamedQueries({
         @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
         @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd"),
-        @NamedQuery(name = "Persona", query = "select p from Persona p where p.numSegSocial = :nss")
+        @NamedQuery(name = "Persona", query = "select p from Persona p where p.numSegSocial = :nss"),
+        @NamedQuery(name = "listaAlertas", query = "select a from Persona p join p.alertas a where p.numSegSocial = :nss and a.fecha >= :hora")
 })
 public class Persona implements Serializable {
 
