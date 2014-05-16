@@ -38,7 +38,8 @@ import javax.persistence.TemporalType;
 @DiscriminatorValue("P")
 @NamedQueries({
         @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
-        @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd")
+        @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd"),
+        @NamedQuery(name = "Persona", query = "select p from Persona p where p.numSegSocial = :nss")
 })
 public class Persona implements Serializable {
 
