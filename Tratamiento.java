@@ -53,7 +53,7 @@ public class Tratamiento implements Serializable {
     private Enumerados.tipoTratamiento tipo;          
     @OneToMany(mappedBy = "tratamiento")
     private List<Cantidad> cantidades;
-    @MapsId
+
     @ManyToOne
     @JoinColumn(nullable=false, name="persona")
     private Persona persona;
