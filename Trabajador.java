@@ -29,7 +29,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 @DiscriminatorValue("T")
-@NamedQueries({@NamedQuery (name = "trabajador.get", query = "select t from Trabajador t")})
+@NamedQueries({@NamedQuery (name = "trabajador", query = "select t from Trabajador t where t.numSegSocial = :nss")})
 public class Trabajador extends Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 

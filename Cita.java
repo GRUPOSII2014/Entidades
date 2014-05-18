@@ -28,8 +28,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @NamedQueries({@NamedQuery (name = "cita.all", query = "select c from Cita c"),
-               @NamedQuery (name = "cita.noAtendidas", query = "select c from Cita c where c.atendido!=true"),
-               @NamedQuery (name = "cita.Atendidas", query = "select c from Cita c where c.atendido=true")})
+               @NamedQuery (name = "cita.trabajador", query = "select c from Cita c where c.trabajador.numSegSocial = :nss")})
 public class Cita implements Serializable {
     private static final long serialVersionUID = 1L;
 
