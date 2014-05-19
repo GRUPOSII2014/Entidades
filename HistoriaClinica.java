@@ -51,7 +51,7 @@ public class HistoriaClinica implements Serializable {
     private String grupoSanguineo;
     @Column(length=4000)
     private String observaciones;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany
     @JoinColumn(name="informes_fk")
     private List<Informe> informes;
     
