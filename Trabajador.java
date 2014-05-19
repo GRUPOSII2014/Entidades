@@ -41,17 +41,17 @@ public class Trabajador extends Persona implements Serializable {
     private Float salario;
     @OneToMany(mappedBy="trabajador")
     private List<Urgencia> urgencias;
-    @OneToOne(mappedBy = "trabajador",cascade = CascadeType.DETACH)
+    @OneToOne(mappedBy = "trabajador")
     private Alerta alerta;
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany
     @JoinTable(name="horario_trabajador", 
     joinColumns = @JoinColumn(name="trabajador_fk"),
     inverseJoinColumns = @JoinColumn(name = "horario_fk"))
     private List<Horario> horarios;
-    @OneToMany(mappedBy = "to",cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "to")
     @JoinColumn(name="to", nullable = true)
     private List<Mensaje> mensajeTo;
-    @OneToMany(mappedBy = "from",cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "from")
     @JoinColumn(name = "from", nullable = true)
     private List<Mensaje> mensajeFrom;
     @ManyToMany
