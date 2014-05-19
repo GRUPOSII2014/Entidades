@@ -15,12 +15,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Angel
  */
 @Entity
+@NamedQuery(name = "Medicamento.consulta", query = "select m from Medicamento")
 public class Medicamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
