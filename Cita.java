@@ -36,7 +36,7 @@ public class Cita implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     
-    @MapsId
+    
     @ManyToOne
     @JoinColumn(nullable = false, name = "Persona")
     private Persona persona;
