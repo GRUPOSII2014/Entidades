@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
  * @author PyRoS
  */
 @Entity
-@NamedQueries({@NamedQuery (name = "urgencia.all", query = "select c from Urgencia c")})
+@NamedQueries({@NamedQuery (name = "urgencia.trabajador", query = "select u from Urgencia u where u.trabajador.numSegSocial = :nss")})
 public class Urgencia implements Serializable {
     private static final long serialVersionUID = 1L;
     
