@@ -45,10 +45,10 @@ public class Alerta implements Serializable {
     private Date fecha;
     @Column(nullable=false)
     private Enumerados.tipoAlerta tipo;
-    @OneToOne(optional = false,cascade = CascadeType.PERSIST)
+    @OneToOne(optional = false)
     @JoinColumn(name="trabajador")
     private Trabajador trabajador;
-    @ManyToMany(mappedBy = "alertas",cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "alertas")
     private List<Persona> personas;
     
     public Alerta(){
