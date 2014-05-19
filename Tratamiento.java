@@ -17,6 +17,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
@@ -38,6 +41,8 @@ public class Tratamiento implements Serializable {
     private String nombre;
     @Column(nullable=false, length=4000)
     private String descripcion;
+    @Column(nullable=true,  length=4000)
+    private String observaciones;
     @Column(nullable=false)
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
@@ -48,6 +53,10 @@ public class Tratamiento implements Serializable {
     private Enumerados.tipoTratamiento tipo;          
     @OneToMany(mappedBy = "tratamiento")
     private List<Cantidad> cantidades;
+    @MapsId
+    @ManyToOne
+    @JoinColumn(nullable=false, name="persona")
+    private Persona persona;
     
     public Tratamiento(){}
 
@@ -76,6 +85,14 @@ public class Tratamiento implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    
+    public String getObservaciones(){
+        return observaciones;
+    }
+    
+    public void setObservaciones(String observaciones){
+        this.observaciones = observaciones;
     }
 
     public Enumerados.tipoTratamiento getTipo() {
@@ -108,6 +125,14 @@ public class Tratamiento implements Serializable {
 
     public void setCantidades(List<Cantidad> cantidades) {
         this.cantidades = cantidades;
+    }
+    
+    public Persona getPersona(){
+        return persona;
+    }
+    
+    public void setPersona(Persona persona){
+        this.persona=persona;
     }
 
     @Override
