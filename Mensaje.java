@@ -45,11 +45,11 @@ public class Mensaje implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Trabajador to;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Trabajador from;
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "respuesta")
     private Mensaje respuesta;
     

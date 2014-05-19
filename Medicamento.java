@@ -22,7 +22,7 @@ import javax.persistence.NamedQuery;
  * @author Angel
  */
 @Entity
-@NamedQuery(name = "Medicamento.consulta", query = "select m from Medicamento")
+@NamedQuery(name = "Medicamento.consulta", query = "select m from Medicamento m")
 public class Medicamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
