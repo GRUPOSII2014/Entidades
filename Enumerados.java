@@ -18,4 +18,6 @@ public class Enumerados {
         public static enum tipoHorario {MAÑANA, TARDE, NOCHE, URGENCIAS};
         public static enum estadoCama {LIBRE, OCUPADA , LIMPIEZA, REPARACION, ROTA, DESIFECTANDO};
         public static enum tipoFormulario{QUEJAS,CERTIFICADO_MEDICO};
+        public static enum listaEspecialidad{OFTALMOLOGIA, GINECOLOGÍA, TRAUMATOLOGÍA, NEUROLOGÍA, UROLOGÍA, PODOLOGÍA};
+        
 }
