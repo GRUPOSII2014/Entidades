@@ -19,6 +19,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -29,6 +30,7 @@ import javax.persistence.TemporalType;
  * @author Fernando
  */
 @Entity
+@NamedQuery( name = "Informe.traer" , query = "select i from Persona p join p.historiaclinica h join h.informes i where p.numSegSocial = :nss")
 public class Informe implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
