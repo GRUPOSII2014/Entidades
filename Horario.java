@@ -37,7 +37,7 @@ public class Horario implements Serializable {
     @Column (nullable=false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date horaSalida;
-    @Column (length = 30)
+    @Column (length = 30, nullable =false)
     private String dia;
 
     public Horario(){}
