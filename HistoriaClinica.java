@@ -43,10 +43,6 @@ public class HistoriaClinica implements Serializable {
     @OneToOne
     @JoinColumn(nullable = false, name = "Persona")
     private Persona persona;
-    
-    @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
-    private Date fechaNacimiento;
     @Column(length=20)
     private String grupoSanguineo;
     @Column(length=4000)
@@ -65,9 +61,6 @@ public class HistoriaClinica implements Serializable {
         this.informes = informes;
     }
     
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
 
     public void setGrupoSanguineo(String grupoSanguineo) {
         this.grupoSanguineo = grupoSanguineo;
@@ -77,9 +70,6 @@ public class HistoriaClinica implements Serializable {
         this.observaciones = observaciones;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
 
     public String getGrupoSanguineo() {
         return grupoSanguineo;
