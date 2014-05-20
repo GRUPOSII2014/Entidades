@@ -38,6 +38,9 @@ import javax.persistence.TemporalType;
 @DiscriminatorValue("P")
 @NamedQueries({
         @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
+        @NamedQuery(name = "Persona.dni", query = "select p from Persona p where p.DNI = :dni"),
+        @NamedQuery(name = "Persona.nss", query = "select p from Persona p where p.numSegSocial = :nss"),
+        @NamedQuery(name = "Persona.correo", query = "select p from Persona p where p.email = :correo"),
         @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd"),
         @NamedQuery(name = "Persona.completar", query = "select p from Persona p where p.nombre like :buscado or p.apellido1 like :buscado or p.apellido2 like :buscado or p.DNI like :buscado"),
         @NamedQuery(name = "Persona", query = "select p from Persona p where p.numSegSocial = :nss"),
