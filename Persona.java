@@ -40,6 +40,7 @@ import javax.persistence.TemporalType;
         @NamedQuery(name = "Persona.all", query = "select p from Persona p"),
         @NamedQuery(name = "Login.Comprueba", query = "select p from Persona p where p.numSegSocial = :nss and p.password = :passwd"),
         @NamedQuery(name = "Persona.completar", query = "select p from Persona p where p.nombre like :buscado or p.apellido1 like :buscado or p.apellido2 like :buscado or p.DNI like :buscado"),
+        @NamedQuery(name = "Trabajador.completar", query = "select t from Trabajador t where t.nombre like :buscado or t.apellido1 like :buscado or t.apellido2 like :buscado or t.DNI like :buscado"),
         @NamedQuery(name = "Persona", query = "select p from Persona p where p.numSegSocial = :nss"),
         @NamedQuery(name = "listaAlertas", query = "select a from Persona p join p.alertas a where p.numSegSocial = :nss and a.fecha >= :hora order by a.fecha"),
         @NamedQuery(name = "listaMensajes", query = "select m from Mensaje m where m.from = :nss or m.to = :nss order by m.fecha desc")
