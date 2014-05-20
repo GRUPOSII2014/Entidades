@@ -10,13 +10,13 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 /**
@@ -24,6 +24,9 @@ import javax.persistence.OneToOne;
  * @author Fernando
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Cama.all", query = "select c from Cama c")
+})
 public class Cama implements Serializable {
     private static final long serialVersionUID = 1L;
     
