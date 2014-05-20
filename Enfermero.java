@@ -12,6 +12,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
@@ -19,6 +21,9 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("E")
+@NamedQueries({
+        @NamedQuery(name = "Enfermero.all", query = "select e from Enfermero e")
+})
 public class Enfermero extends Trabajador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable=false)
