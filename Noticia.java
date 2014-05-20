@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
  * @author PyRoS
  */
 @Entity
-@NamedQuery (name = "Noticias", query = "select n from Noticia n")
+@NamedQuery (name = "Noticias", query = "select n from Noticia n order by n.fecha desc")
 public class Noticia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
