@@ -14,6 +14,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -22,6 +24,10 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @DiscriminatorValue("M")
+@NamedQueries({
+        @NamedQuery(name = "Medico.all", query = "select m from Medico m"),
+        @NamedQuery(name = "Medico.getHorario", query = "select m from Medico m where m.numSegSocial = :nss")
+})
 public class Medico extends Trabajador implements Serializable {
     private static final long serialVersionUID = 1L;
     
