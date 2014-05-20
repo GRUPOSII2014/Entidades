@@ -4,7 +4,7 @@ package Entidades;
 
 public class Enumerados {
 	public static enum tipoAlerta{AVISO,ALERTA,NOTIFICACION};
-	public static enum tipoTrabajador{LIMPIADORA,MANTENIMIENTO,ADMINISTRATIVO,COCINERO,MEDICO, ENFERMERO};
+	public static enum tipoTrabajador{ADMINISTRATIVO,MEDICO,ENFERMERO,ADMIN};
 	public static enum tipoHabitacion{UVI,UCI,QUIROFANO,OBSERVACION,TRATAMIENTOS};
 	public static enum tipoDieta{BLANDA,NORMAL,HIPOCALORICA,HIPERCALORICA,VEGETARIANA};
 	public static enum tipoHorarios{DIAGNOSTICO,ENFERMERIA};
@@ -18,4 +18,6 @@ public class Enumerados {
         public static enum tipoHorario {MAÑANA, TARDE, NOCHE, URGENCIAS};
         public static enum estadoCama {LIBRE, OCUPADA , LIMPIEZA, REPARACION, ROTA, DESIFECTANDO};
         public static enum tipoFormulario{QUEJAS,CERTIFICADO_MEDICO};
+        public static enum listaEspecialidad{OFTALMOLOGIA, GINECOLOGÍA, TRAUMATOLOGÍA, NEUROLOGÍA, UROLOGÍA, PODOLOGÍA};
+        
 }
