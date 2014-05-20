@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -25,6 +26,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author Fernando
  */
 @Entity
+@NamedQuery(name = "Planta.all", query = "select p from Planta p")
 public class Planta implements Serializable {
     private static final long serialVersionUID = 1L;
     
