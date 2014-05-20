@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
  * @author PyRoS
  */
 @Entity
-@NamedQuery (name = "Noticias", query = "select n from Noticia n")
+@NamedQuery (name = "Noticias", query = "select n from Noticia n order by n.fecha desc")
 public class Noticia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,7 +46,7 @@ public class Noticia implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "escritoPor")
-    private TrabajadoresHospital escritoPor;
+    private Trabajador escritoPor;
 
     public Long getId() {
         return id;
@@ -80,11 +80,11 @@ public class Noticia implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public TrabajadoresHospital getEscritoPor() {
+    public Trabajador getEscritoPor() {
         return escritoPor;
     }
 
-    public void setEscritoPor(TrabajadoresHospital escritoPor) {
+    public void setEscritoPor(Trabajador escritoPor) {
         this.escritoPor = escritoPor;
     }
 
