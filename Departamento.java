@@ -40,7 +40,7 @@ public class Departamento implements Serializable {
     @ManyToOne(optional=false)
     @JoinColumn(name="hospital_fk")
     private Hospital hospital;
-    @OneToMany( mappedBy ="departamento",cascade = CascadeType.DETACH)
+    @OneToMany( mappedBy ="departamento")
     private List<Trabajador> trabajadores;
     public Departamento (){
         

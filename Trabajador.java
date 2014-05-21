@@ -60,7 +60,7 @@ public class Trabajador extends Persona implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "especialidad_fk"))
     private List<Especialidad> especialidad;
     @ManyToOne(optional = true)
-    @JoinColumn(name = "dep_id", nullable = false)
+    @JoinColumn(name = "dep_id", nullable = true)
     private Departamento departamento;
     
     public Trabajador(){
