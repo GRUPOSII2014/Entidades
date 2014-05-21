@@ -6,7 +6,6 @@ package Entidades;
  * and open the template in the editor.
  */
 import java.io.Serializable;
-import java.sql.Time;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
