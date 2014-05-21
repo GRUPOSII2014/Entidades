@@ -9,21 +9,15 @@ package Entidades;
 
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -40,7 +34,7 @@ public class HistoriaClinica implements Serializable {
     */
     
     @Id
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false, name = "Persona")
     private Persona persona;
     @Column(length=20)

@@ -48,7 +48,7 @@ public class Alerta implements Serializable {
     @OneToOne(optional = false)
     @JoinColumn(name="trabajador")
     private Trabajador trabajador;
-    @ManyToMany(mappedBy = "alertas")
+    @ManyToMany(mappedBy = "alertas", cascade = CascadeType.PERSIST)
     private List<Persona> personas;
     
     public Alerta(){

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -96,7 +97,7 @@ public class Persona implements Serializable {
 
     @OneToOne(mappedBy = "paciente")
     private Cama cama;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "alertas",
             joinColumns = @JoinColumn(name = "persona_fk"),
             inverseJoinColumns = @JoinColumn(name = "alerta_fk"))
