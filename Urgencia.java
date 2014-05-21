@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,10 +34,9 @@ public class Urgencia implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     
-    @MapsId
     @ManyToOne
     @JoinColumn(nullable = false, name = "Persona")
     private Persona persona;
@@ -43,9 +44,7 @@ public class Urgencia implements Serializable {
     @Column(length = 4000)
     private String observaciones;
     @Column(nullable=false)
-    private Enumerados.estadoUrgencia estado;
-    @Column(nullable=false)
-    private Enumerados.tipoUrgencia tipo;
+    private boolean atendido;
     @ManyToOne
     @JoinColumn(name = "atiende",nullable = false)
     private Trabajador trabajador;
@@ -54,21 +53,15 @@ public class Urgencia implements Serializable {
         
     }
 
-    public Enumerados.estadoUrgencia getEstado() {
-        return estado;
+    public boolean isAtendido() {
+        return atendido;
     }
 
-    public void setEstado(Enumerados.estadoUrgencia estado) {
-        this.estado = estado;
+    public void setAtendido(boolean atendido) {
+        this.atendido = atendido;
     }
 
-    public Enumerados.tipoUrgencia getTipo() {
-        return tipo;
-    }
 
-    public void setTipo(Enumerados.tipoUrgencia tipo) {
-        this.tipo = tipo;
-    }
 
     public Trabajador getTrabajador() {
         return trabajador;
@@ -92,12 +85,12 @@ public class Urgencia implements Serializable {
         this.observaciones = observaciones;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Integer getId() {
+        return id;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Persona getPersona() {
@@ -111,7 +104,7 @@ public class Urgencia implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.fecha);
+        hash = 83 * hash + Objects.hashCode(this.id);
         hash = 83 * hash + Objects.hashCode(this.persona);
         return hash;
     }
@@ -125,7 +118,7 @@ public class Urgencia implements Serializable {
             return false;
         }
         final Urgencia other = (Urgencia) obj;
-        if (!Objects.equals(this.fecha, other.fecha)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.persona, other.persona)) {

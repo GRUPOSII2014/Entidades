@@ -35,11 +35,11 @@ import javax.persistence.OneToOne;
 public class Trabajador extends Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Column(nullable=false)
+    @Column(nullable=true)
     private boolean activo;
-    @Column(nullable=false)
+    @Column(nullable=true)
     private Enumerados.tipoTrabajador tipo;
-    @Column(nullable=false)
+    @Column(nullable=true)
     private Float salario;
     @OneToMany(mappedBy="trabajador")
     private List<Urgencia> urgencias;
