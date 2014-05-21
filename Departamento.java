@@ -54,23 +54,7 @@ public class Departamento implements Serializable {
 
     public void setTrabajadores(List<Trabajador> trabajadores) {
         this.trabajadores = trabajadores;
-    }
-
-    public Trabajador getJefe() {
-        return jefe;
-    }
-
-    public void setJefe(Trabajador jefe) {
-        this.jefe = jefe;
-    }
-
-    
-   
-
-    public void setJefe(Medico jefe) {
-        this.jefe = jefe;
-    }
-    
+    } 
     public Hospital getHospital() {
         return hospital;
     }
