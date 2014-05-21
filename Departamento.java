@@ -43,8 +43,6 @@ public class Departamento implements Serializable {
     private Hospital hospital;
     @OneToMany( mappedBy ="departamento",cascade = CascadeType.DETACH)
     private List<Trabajador> trabajadores;
-    @OneToOne(optional=true)
-    private Trabajador jefe;
 
     public Departamento (){
         
