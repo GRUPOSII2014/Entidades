@@ -20,7 +20,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -43,9 +42,7 @@ public class Departamento implements Serializable {
     private Hospital hospital;
     @OneToMany( mappedBy ="departamento",cascade = CascadeType.DETACH)
     private List<Trabajador> trabajadores;
-    @OneToOne(optional=true)
-    private Trabajador jefe;
-
+    
     public Departamento (){
         
     }
@@ -58,21 +55,6 @@ public class Departamento implements Serializable {
         this.trabajadores = trabajadores;
     }
 
-    public Trabajador getJefe() {
-        return jefe;
-    }
-
-    public void setJefe(Trabajador jefe) {
-        this.jefe = jefe;
-    }
-
-    
-   
-
-    public void setJefe(Medico jefe) {
-        this.jefe = jefe;
-    }
-    
     public Hospital getHospital() {
         return hospital;
     }
