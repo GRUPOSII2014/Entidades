@@ -41,8 +41,6 @@ public class Trabajador extends Persona implements Serializable {
     private Enumerados.tipoTrabajador tipo;
     @Column(nullable=false)
     private Float salario;
-    @OneToMany(mappedBy="trabajador")
-    private List<Urgencia> urgencias;
     @OneToOne(mappedBy = "trabajador")
     private Alerta alerta;
     @ManyToMany
