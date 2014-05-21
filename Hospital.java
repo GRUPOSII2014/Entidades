@@ -43,12 +43,6 @@ public class Hospital implements Serializable {
     @Column(nullable=false, length=200)
     private String ciudad;
     @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
-    private Date horaApertura;
-    @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
-    private Date horaCierre;
-    @Column(nullable=false)
     private String localizacion;
     @OneToMany(mappedBy = "hospital")
     @JoinColumn(nullable = true)
@@ -122,23 +116,6 @@ public class Hospital implements Serializable {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-    public Date getHoraApertura() {
-        return horaApertura;
-    }
-
-    public void setHoraApertura(Date horaApertura) {
-        this.horaApertura = horaApertura;
-    }
-
-    public Date getHoraCierre() {
-        return horaCierre;
-    }
-
-    public void setHoraCierre(Date horaCierre) {
-        this.horaCierre = horaCierre;
-    }
-
     
     public Integer getId() {
         return id;
