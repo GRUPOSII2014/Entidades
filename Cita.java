@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -35,8 +37,8 @@ public class Cita implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     
     
     @ManyToOne
@@ -98,20 +100,21 @@ public class Cita implements Serializable {
     public void setTrabajador(Trabajador trabajador) {
         this.trabajador = trabajador;
     }
-    
-    
-    public Date getFecha() {
-        return fecha;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setId(Integer id) {
+        this.id = id;
     }
+    
+    
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.fecha);
+        hash = 79 * hash + Objects.hashCode(this.id);
         hash = 79 * hash + Objects.hashCode(this.persona);
         return hash;
     }
@@ -125,7 +128,7 @@ public class Cita implements Serializable {
             return false;
         }
         final Cita other = (Cita) obj;
-        if (!Objects.equals(this.fecha, other.fecha)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.persona, other.persona)) {
