@@ -16,7 +16,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -30,6 +29,7 @@ import javax.persistence.TemporalType;
 @NamedQueries({@NamedQuery (name = "cita.all", query = "select c from Cita c"),
                @NamedQuery (name = "cita.todas", query = "select c from Cita c where c.trabajador.numSegSocial= :nss and c.fecha > :fecha"),
                @NamedQuery (name = "cita.noAtendida", query = "select c from Cita c where c.trabajador.numSegSocial = :nss and c.atendido=false"),
+               @NamedQuery (name = "cita.noAsistida", query = "select c from Cita c where c.persona.numSegSocial = :nss and c.atendido=false"),
                @NamedQuery (name = "cita.trabajador", query = "select c from Cita c where c.trabajador.numSegSocial = :nss")})
 public class Cita implements Serializable {
     private static final long serialVersionUID = 1L;
