@@ -41,8 +41,6 @@ public class Trabajador extends Persona implements Serializable {
     private Enumerados.tipoTrabajador tipo;
     @Column(nullable=true)
     private Float salario;
-    @OneToMany(mappedBy="trabajador")
-    private List<Urgencia> urgencias;
     @OneToOne(mappedBy = "trabajador")
     private Alerta alerta;
     @ManyToMany
@@ -61,7 +59,7 @@ public class Trabajador extends Persona implements Serializable {
             joinColumns = @JoinColumn(name = "medico_fk"),
             inverseJoinColumns = @JoinColumn(name = "especialidad_fk"))
     private List<Especialidad> especialidad;
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumn(name = "dep_id", nullable = false)
     private Departamento departamento;
     

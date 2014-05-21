@@ -85,9 +85,6 @@ public class Persona implements Serializable {
     private Date fechaNacimiento;
     @Column(insertable = false, updatable = false) 
     private String disc;
-    
-    @OneToMany(mappedBy = "persona")
-    private List<Urgencia> urgencias;
 
     @OneToMany
     @JoinColumn(name = "personaTratamiento")
@@ -194,10 +191,6 @@ public class Persona implements Serializable {
         return serialVersionUID;
     }
 
-    public List<Urgencia> getUrgencias() {
-        return urgencias;
-    }
-
     public List<Tratamiento> getTratamiento() {
         return tratamiento;
     }
@@ -206,9 +199,6 @@ public class Persona implements Serializable {
         return cama;
     }
 
-    public void setUrgencias(List<Urgencia> urgencias) {
-        this.urgencias = urgencias;
-    }
 
     public void setTratamiento(List<Tratamiento> tratamiento) {
         this.tratamiento = tratamiento;
