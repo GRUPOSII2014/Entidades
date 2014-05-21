@@ -12,6 +12,8 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,13 +31,14 @@ public class Habitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
     private Integer num;
     @ManyToOne
     @JoinColumn(nullable = false, name = "planta")
     private Planta planta;
-    @Column(nullable=false, length=20)
+    @Column(nullable=true, length=20)
     private Enumerados.tipoHabitacion tipo;//Hacer ejemplo
     @OneToMany(mappedBy = "habitacion")
     private List<Cama> camas;
