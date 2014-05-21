@@ -29,7 +29,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @NamedQueries({@NamedQuery (name = "cita.all", query = "select c from Cita c"),
-               @NamedQuery (name = "cita.todas", query = "select c from Cita c where c.trabajador.numSegSocial= :nss and c.fecha > :fecha"),
+              // @NamedQuery (name = "cita.todas", query = "select c from Cita c where c.trabajador.numSegSocial= :nss and c.fecha > :fecha"),
                @NamedQuery (name = "cita.noAtendida", query = "select c from Cita c where c.trabajador.numSegSocial = :nss and c.atendido=false"),
                @NamedQuery (name = "cita.noAsistida", query = "select c from Cita c where c.persona.numSegSocial = :nss and c.atendido=false"),
                @NamedQuery (name = "cita.trabajador", query = "select c from Cita c where c.trabajador.numSegSocial = :nss")})
