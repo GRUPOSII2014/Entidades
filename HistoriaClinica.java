@@ -9,6 +9,7 @@ package Entidades;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -43,7 +44,7 @@ public class HistoriaClinica implements Serializable {
     private String observaciones;
     @OneToMany
     @JoinColumn(name="informes_fk")
-    private List<Informe> informes;
+    private List<Informe> informes = new ArrayList<>();
     
 
     public HistoriaClinica(){
@@ -80,6 +81,7 @@ public class HistoriaClinica implements Serializable {
     }
 
     public List<Informe> getInformes() {
+        if (informes.isEmpty()) return null;
         return informes;
     }
 

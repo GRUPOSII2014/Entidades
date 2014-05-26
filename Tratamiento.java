@@ -41,7 +41,7 @@ public class Tratamiento implements Serializable {
     private String nombre;
     @Column(nullable=false, length=4000)
     private String descripcion;
-    @Column(nullable=true,  length=4000)
+    @Column(length=4000)
     private String observaciones;
     @Column(nullable=false)
     @Temporal(TemporalType.DATE)
