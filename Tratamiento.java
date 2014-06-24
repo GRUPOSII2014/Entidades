@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
@@ -31,6 +32,7 @@ import javax.resource.spi.AuthenticationMechanism;
  * @author Alberto
  */
 @Entity
+@NamedQuery(name = "Tratemiento.persona", query = "select t from Tratamiento t where t.persona.numSegSocial = :nss")
 public class Tratamiento implements Serializable {
     private static final long serialVersionUID = 1L;
 

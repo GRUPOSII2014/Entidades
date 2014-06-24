@@ -87,8 +87,9 @@ public class Persona implements Serializable {
     private String disc;
 
     @OneToMany
-    @JoinColumn(name = "personaTratamiento")
+    @JoinColumn( name = "personaTratamiento")
     private List<Tratamiento> tratamiento;
+    
     @OneToMany(mappedBy = "persona")
     private List<Cita> citas;
 
